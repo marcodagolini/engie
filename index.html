@@ -68,81 +68,13 @@
  	
  <script>
 	 
-function offeredOrNot(){
-	console.log("offered");
-}
-	 
-function clickOrNot(data, eventInfo){
-	console.log("cliccccckkkk");
-	console.log(data);
-	console.log(eventInfo);
-	console.log("**********");
-}
-	 
-function closedOrNot(){
-	console.log("closeeeeedddddd");
-}
-	 
-function interactiveOrNot(data, eventInfo){
-	if(window.console && window.JSON){
-		if(data.state === "interactive"){
-			console.log("yepppaaaa");
-			lpTag.sdes = lpTag.sdes||[];
-			
-			lpTag.sdes.push(
-				{
-					"type": "ctmrinfo",
-					"info": {
-						"cstatus": "interactive"
-					}
-				}
-			);
-			setTimeout(function(){
-				console.log("sdfghjkjhgfd");
-				console.log(lpTag.sdes.get('ctmrinfo')[lpTag.sdes.get('ctmrinfo').length-1].info.cstatus);
-			}, 10000);
-	
-		}
-	}	
-	
-}
-	 
-	 
-lpTag.events.bind({
-    eventName : "OFFER_IMPRESSION",
-    appName : "LP_OFFERS",
-    func: offeredOrNot,
-    triggerOnce : false
- });
-  
-lpTag.events.bind({
-    eventName : "OFFER_CLICK",
-    appName : "LP_OFFERS",
-    func: clickOrNot,
-    triggerOnce : false
- });
-	 
-	 
-lpTag.events.bind({
-    eventName : "state",
-    appName : "lpUnifiedWindow",
-    func: interactiveOrNot,
-    triggerOnce : false
- });
-	 
-	 
-lpTag.events.bind({
-    eventName : "windowClosed",
-    appName : "lpUnifiedWindow",
-    func: closedOrNot,
-    triggerOnce : false
- });
+
 	 
 $(document).ready(function(){
 	 setTimeout(function(){
 	 
  var CurrentLocation = window.location.href;
- lpTag.newPage(CurrentLocation, {section: "astraair"});
+ lpTag.newPage(CurrentLocation, {section: "engie"});
  
  lpTag.sdes.push({
      "type": "ctmrinfo",
@@ -167,64 +99,7 @@ $(document).ready(function(){
   
   
   
-  <!-- test 
-  
-  <script>
-	  
-	  
-	  
-	  
-   
-  
-  function MyFunction2(){
-      console.log("inside 4th funtion");
-      var refreshIntervalId3 = setInterval(function(){
-         console.log("inside 5th funtion");
-         var myEle = document.getElementsByClassName("lp_submit_button");
-         if(myEle){
-		 setTimeout(function(){
-			$('.lp_submit_button').trigger('click');
-		 }, 1000);
-             
-             clearInterval(refreshIntervalId3);
-         }
-      } , 100);
-   }
-   
-   
-   
-   function MyFunction(){
-      console.log("inside second funtion");
-      var refreshIntervalId2 = setInterval(function(){
-         console.log("inside third funtion");
-         var myEle = document.getElementById("txt_5296250");
-         if(myEle){
-		$("#txt_5296250").sendkeys ("B") ;
-		// document.getElementById("txt_5296250").value = "Nome Cognome";
-             	clearInterval(refreshIntervalId2);
-             	MyFunction2();
-         }
-      } , 100);
-   }
-   
-   
-   var refreshIntervalId = setInterval(function(){
-     console.log("inside first function");
-     $('.LPMcontainer').click(function(){
-        console.log("hooray");
-        clearInterval(refreshIntervalId);
-        MyFunction();
-     });
-    
-   } , 500);
-   
-   
-   
-   
-  </script>
-  
-  
-    test -->
+ 
  	
    <div id="customerID" class="myDiv">My Element to highlight</div>
    <form action="/action_page.php">Name: <input type="text" name="FirstName" value="Name"><br>
